@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    max-height: 100vh;
+    background-color: #0c192c;
+}
+.container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+}
+.bubbles{
+    position: relative;
+    display: flex;
+}
+.bubbles span{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    animation: animate 15s linear infinite ;
+    animation-duration: calc(100S / var(--i));
+     
+}
+.bubbles span:nth-child(even) {
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+}
+@keyframes animate{
+    0%{transform:  translateY(100vh) scale(0);}
+    100%{
+        transform:translateY(-100vh) scale(1);
+
+    }
+}
+
+.loader{
+ 
+}
+.loader span{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    background: #eef6fa;
+    border: 6px solid #d4aeff;
+    box-shadow: -8px -8px 25px rgb(240, 243, 62),
+    8px 8px 25px rgba(0,0, 0, 15);
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 50%;
+
+}
+
+.loader span::before{
+    content: '';
+    position: absolute;
+    inset: 40px;
+    background: #eaeef0;
+    border-radius: 50%;
+    box-shadow:  -8px -8px 25px rgba(255 , 255, 255, 1),
+    8px 8px 25px rgba(0,0,0,0.25),
+    inset 3px 3px 10px rgba(0,0, 0, 0.1),
+    inset -1px -1px 15px rgba(255,255, 255, 1);
+    border: 2px solid #eaeef0;
+    z-index: 1;
+}
+.loader span i{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(#42abff, #ff4f8b,#ff4f8b,#ffeb3b);
+    border-radius: 50%;
+    filter: blur(5px);
+    animation:  animate2 1s linear infinite;
+}
+@keyframes animate2{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+/* ------------- */
+
+#imag{
+    
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.5);
+    z-index: 10;
+}
